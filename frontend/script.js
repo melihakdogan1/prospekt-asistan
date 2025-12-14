@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => new ProspektAsistan());
 
 class ProspektAsistan {
     constructor() {
-    
-        this.API_BASE = 'https://d60b249e237e.ngrok-free.app';
+        // Localhost üzerinde çalışıyoruz
+        this.API_BASE = 'http://localhost:8000';
         this.init();
     }
 

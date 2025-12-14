@@ -22,7 +22,7 @@ import uvicorn
 # Try importing Hugging Face transformers (optional for demo)
 try:
     # Import only if needed, disabled for demo speed
-    HAS_TRANSFORMERS = False  # Disabled for demo performance
+    HAS_TRANSFORMERS = False 
     logger = logging.getLogger(__name__)
     logger.info("� Using rule-based AI for demo speed")
 except ImportError:
