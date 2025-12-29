@@ -9,6 +9,16 @@ requests==2.31.0
 PyPDF2==3.0.1
 pdfplumber==0.10.0
 
+# OCR için (opsiyonel - hibrit OCR desteği)
+# PaddleOCR için: pip install paddlepaddle paddleocr
+# Tesseract için: pip install pytesseract pillow pdf2image
+# NOT: Tesseract kullanmak için sistem üzerinde Tesseract OCR kurulu olmalı
+pdf2image==1.16.3
+pillow>=9.0.0
+pytesseract>=0.3.10
+# paddlepaddle  # GPU için: paddlepaddle-gpu
+# paddleocr>=2.6.0
+
 # Vector database & AI
 chromadb==0.4.15
 sentence-transformers==2.2.2
