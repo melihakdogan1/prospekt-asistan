@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import TimeoutException, WebDriverException, NoAlertPresentException
+from selenium.common.exceptions import TimeoutException, WebDriverException, NoAlertPresentException, UnexpectedAlertPresentException
 from bs4 import BeautifulSoup
 import time
 import os
@@ -86,19 +86,55 @@ def safe_driver_operation(driver, operation_func, max_retries=MAX_RETRIES):
                 raise
 
 def handle_alerts(driver):
-    """Açık alert'leri kapat"""
+    """Açık alert'leri kapat ve DataTables hatalarını yönet"""
     try:
         alert = driver.switch_to.alert
         alert_text = alert.text
         print(f" Alert tespit edildi: {alert_text}")
         alert.accept()
         time.sleep(2)
+        
+        # DataTables Ajax hatası kontrolü
+        if "DataTables warning" in alert_text and "Ajax error" in alert_text:
+            print(" ⚠️ DataTables Ajax hatası algılandı! Sayfa yenileniyor...")
+            driver.refresh()
+            time.sleep(10) # Sayfanın kendine gelmesi için uzun bekle
+            return "refresh_needed"
+            
         return True
     except NoAlertPresentException:
         return False
     except Exception as e:
         print(f" Alert işleme hatası: {e}")
         return False
+
+def log_failed_download(drug_name, file_type, url):
+    """İndirilemeyen dosyaları logla"""
+    print(f"!!! İNDİRİLEMEDİ: {drug_name} ({file_type})")
+    log_file = os.path.join(os.path.dirname(__file__), "..", "failed_downloads.txt")
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(log_file, 'a', encoding='utf-8') as f:
+        f.write(f"{timestamp} | {drug_name} | {file_type} | {url}\n")
+
+def log_skipped_pages(from_page, to_page):
+    """Atlanan sayfaları logla"""
+    try:
+        start = int(from_page) + 1
+        end = int(to_page)
+        if start >= end:
+            return
+
+        print(f"!!! SAYFA ATLAMA TESPİT EDİLDİ: {from_page} -> {to_page}")
+        log_file = os.path.join(os.path.dirname(__file__), "..", "skipped_pages.txt")
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        with open(log_file, 'a', encoding='utf-8') as f:
+            for p in range(start, end):
+                f.write(f"{timestamp} | Atlanan Sayfa: {p}\n")
+                print(f"!!! Atlanan Sayfa Loglandı: {p}")
+    except:
+        pass
+
 
 def download_pdf_with_retry(url, file_path, max_retries=MAX_RETRIES):
     """PDF dosyasını retry mekanizması ile indir"""
@@ -154,12 +190,20 @@ def download_pdf_with_retry(url, file_path, max_retries=MAX_RETRIES):
                 print(f" {delay:.1f} saniye bekleniyor...")
                 time.sleep(delay)
             else:
+                # Son deneme de başarısız olduysa logla
+                drug_name = os.path.basename(file_path).replace('_KUB.pdf', '').replace('_KT.pdf', '')
+                file_type = 'KUB' if '_KUB.pdf' in file_path else 'KT'
+                log_failed_download(drug_name, file_type, url)
                 return False
         except Exception as e:
             print(f" Genel indirme hatası: {str(e)[:100]}")
             if attempt < max_retries - 1:
                 time.sleep(RETRY_DELAY)
             else:
+                # Son deneme de başarısız olduysa logla
+                drug_name = os.path.basename(file_path).replace('_KUB.pdf', '').replace('_KT.pdf', '')
+                file_type = 'KUB' if '_KUB.pdf' in file_path else 'KT'
+                log_failed_download(drug_name, file_type, url)
                 return False
     
     return False
@@ -192,7 +236,9 @@ def navigate_to_next_page_safe(driver, wait):
     """Sonraki sayfaya güvenli şekilde git - İyileştirilmiş versiyon"""
     def _navigate(driver):
         # Alert kontrolü
-        handle_alerts(driver)
+        alert_result = handle_alerts(driver)
+        if alert_result == "refresh_needed":
+            return False # Refresh yapıldı, tekrar denenecek
         
         # Mevcut sayfa numarasını al
         try:
@@ -207,8 +253,12 @@ def navigate_to_next_page_safe(driver, wait):
         time.sleep(1)
         
         # Next butonunu bul
-        next_button = wait.until(EC.element_to_be_clickable((By.ID, "posts_next")))
-        
+        try:
+            next_button = wait.until(EC.presence_of_element_located((By.ID, "posts_next")))
+        except:
+            print(" Next butonu bulunamadı!")
+            return False
+
         # Buton durumunu kontrol et
         button_class = next_button.get_attribute("class") or ""
         if "disabled" in button_class:
@@ -229,6 +279,12 @@ def navigate_to_next_page_safe(driver, wait):
         success = False
         for method_name, method_func in navigation_methods:
             try:
+                # Stale element check - butonu her denemede yeniden bul
+                try:
+                    next_button = driver.find_element(By.ID, "posts_next")
+                except:
+                    pass # Önceki referansı kullanmayı dene veya fail ol
+
                 print(f" {method_name} deneniyor...")
                 
                 # Butonu görünür yap
@@ -236,7 +292,13 @@ def navigate_to_next_page_safe(driver, wait):
                 time.sleep(1)
                 
                 # Navigation methodunu dene
-                method_func()
+                try:
+                    method_func()
+                except UnexpectedAlertPresentException:
+                    print(f" {method_name}: Beklenmedik alert oluştu!")
+                    if handle_alerts(driver) == "refresh_needed":
+                        return False
+                
                 time.sleep(4)
                 
                 # Sayfa değişimini kontrol et
@@ -249,6 +311,7 @@ def navigate_to_next_page_safe(driver, wait):
                     
                     if new_page != current_page:
                         print(f" Sayfa başarıyla değişti: {current_page} → {new_page}")
+                        log_skipped_pages(current_page, new_page)
                         success = True
                         break
                     else:
@@ -282,7 +345,8 @@ def navigate_to_next_page_safe(driver, wait):
             )
             
             # Alert kontrolü
-            handle_alerts(driver)
+            if handle_alerts(driver) == "refresh_needed":
+                return False
             
             time.sleep(3)  # Stabil olması için bekle
             print(" Sayfa başarıyla yüklendi")
@@ -427,14 +491,21 @@ def main():
     total_kub_count = 0
     total_kt_count = 0
     
-    print(f" Sayfa 1'den başlatılıyor...")
+    # Progress dosyasını kontrol et ve yükle
+    progress_data = load_progress()
+    if progress_data:
+        print(f" Önceki oturum bulundu: Sayfa {progress_data['current_page']}")
+        start_page = progress_data['current_page'] + 1  # Kaldığı yerden devam et
+        total_processed = progress_data.get('total_processed', 0)
+        total_kub_count = progress_data.get('kub_downloaded', 0)
+        total_kt_count = progress_data.get('kt_downloaded', 0)
+        print(f" Kaldığı yerden devam ediliyor: Sayfa {start_page}")
+    else:
+        print(f" Sayfa 1'den başlatılıyor...")
+    
     print(f"   Hedef: Eksik dosyaları bulup indirmek")
     print(f"    Mevcut dosyalar hızlıca atlanacak")
     print(f"    Sadece eksik dosyalar indirilecek")
-    
-    # Progress dosyasını temizle - yeni başlangıç
-    if os.path.exists('progress.json'):
-        os.remove('progress.json')
     
     driver = None
     try:
@@ -448,11 +519,21 @@ def main():
         # Başlangıç sayfasına git
         if start_page > 1:
             print(f" Sayfa {start_page}'a gidiliyor...")
-            for _ in range(start_page - 1):
+            # Sayfa atlama mantığı: Her sayfa geçişi için next butonuna tıkla
+            # Bu işlem uzun sürebilir ama güvenlidir.
+            # Eğer URL parametresi ile gidilebiliyorsa o daha iyi olurdu ama bu site SPA gibi davranıyor.
+            
+            current_site_page = 1
+            while current_site_page < start_page:
+                print(f" Sayfa atlanıyor: {current_site_page} -> {current_site_page + 1}")
                 if not navigate_to_next_page_safe(driver, wait):
-                    print(" Sayfa geçişi başarısız!")
+                    print(" Sayfa geçişi başarısız! Kaldığı yerden devam edilemiyor.")
+                    # Eğer gidemiyorsak, olduğumuz yerden devam edelim
+                    start_page = current_site_page
                     break
-                time.sleep(2)
+                current_site_page += 1
+                # Hızlı geçiş için bekleme süresini azalttık ama site tepkisi için gerekli
+                time.sleep(1) 
         
         current_page = start_page
         
@@ -483,7 +564,16 @@ def main():
                     print(" Son sayfaya ulaşıldı veya sonraki sayfaya geçilemedi.")
                     break
                 
-                current_page += 1
+                # Sayfa numarasını siteden güncellemeye çalış, yoksa artır
+                try:
+                    current_page_element = driver.find_element(By.CSS_SELECTOR, ".paginate_button.current")
+                    site_page = int(current_page_element.text)
+                    if site_page > current_page:
+                        current_page = site_page
+                    else:
+                        current_page += 1
+                except:
+                    current_page += 1
                 
                 # Ara dinlenme
                 time.sleep(random.uniform(2, 5))

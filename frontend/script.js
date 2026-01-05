@@ -2,22 +2,42 @@ document.addEventListener('DOMContentLoaded', () => new ProspektAsistan());
 
 class ProspektAsistan {
     constructor() {
-        // Localhost üzerinde çalışıyoruz
         this.API_BASE = 'http://localhost:8000';
         this.init();
     }
 
-    /**
-     * Uygulamayı başlatır
-     */
     init() {
         this.cacheDOMElements();
         this.setupEventListeners();
     }
 
-    /**
-     * DOM elementlerini önbelleğe alır
-     */
+    // Türkçe Title Case dönüştürücü
+    toTurkishTitleCase(text) {
+        if (!text) return '';
+        
+        // Önce küçük harfe çevir (Türkçe karakterler için)
+        const lower = text.toLowerCase()
+            .replace(/I/g, 'ı')
+            .replace(/İ/g, 'i');
+        
+        // Kelimeleri ayır ve her birinin baş harfini büyük yap
+        const abbreviations = ['mg', 'ml', 'mcg', 'iu', 'gr', 'kg', 'g', 'l'];
+        
+        return lower.split(' ').map((word, index) => {
+            // Sayı ise olduğu gibi
+            if (/^\d+$/.test(word)) return word;
+            // Kısaltma ise küçük
+            if (abbreviations.includes(word)) return word;
+            // Türkçe baş harf büyütme
+            if (!word) return word;
+            let first = word[0];
+            if (first === 'i') first = 'İ';
+            else if (first === 'ı') first = 'I';
+            else first = first.toUpperCase();
+            return first + word.slice(1);
+        }).join(' ');
+    }
+
     cacheDOMElements() {
         this.els = {
             chatWrapper: document.getElementById('chatWrapper'),
@@ -30,9 +50,6 @@ class ProspektAsistan {
         };
     }
 
-    /**
-     * Event listener'ları kurar
-     */
     setupEventListeners() {
         this.els.startChatCard.addEventListener('click', () => this.showChat());
         this.els.homeBtn.addEventListener('click', () => this.hideChat());
@@ -45,66 +62,177 @@ class ProspektAsistan {
     showChat() {
         this.els.chatWrapper.classList.add('visible');
         if (this.els.chatMessages.children.length === 0) {
-             this.addAssistantMessage("Merhaba! Ben ProspektAsistan. Size ilaçlar hakkında nasıl yardımcı olabilirim?");
+            this.addAssistantMessage("Merhaba! Ben ProspektAsistan. Size hangi ilaç hakkında bilgi verebilirim?");
         }
     }
 
     hideChat() { this.els.chatWrapper.classList.remove('visible'); }
 
-    async sendMessage() {
-        const message = this.els.messageInput.value.trim();
+    async sendMessage(text = null) {
+        let message = text || this.els.messageInput.value.trim();
         if (!message) return;
 
-        this.addUserMessage(message);
-        this.els.messageInput.value = '';
+        if (!text) {
+            this.addUserMessage(message);
+            this.els.messageInput.value = '';
+        }
+
         this.els.typingIndicator.style.display = 'flex';
         this.scrollChat();
 
         try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 65000); 
-
             const response = await fetch(`${this.API_BASE}/search`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: message }),
-                signal: controller.signal
+                body: JSON.stringify({ query: message })
             });
             
-            clearTimeout(timeoutId);
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.detail || 'Sunucudan bir hata alındı.');
-            }
-            
             const data = await response.json();
-            this.addAssistantMessage(data.llm_answer);
+            this.handleResponse(data);
 
         } catch (error) {
             console.error('Hata:', error);
-            if (error.name === 'AbortError') {
-                 this.addAssistantMessage('Üzgünüm, cevap almak çok uzun sürdü. Lütfen daha sonra tekrar deneyin.');
-            } else {
-                 this.addAssistantMessage(`Üzgünüm, bir hata oluştu: ${error.message}`);
-            }
+            this.addAssistantMessage("Bağlantı hatası oluştu. Lütfen sunucunun çalıştığından emin olun.");
         } finally {
             this.els.typingIndicator.style.display = 'none';
         }
     }
 
-    addUserMessage(content) { this.createMessageElement(content, 'user'); }
-
-    addAssistantMessage(content) {
-        const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n- /g, '<br>• ').replace(/\n\* /g, '<br>• ').replace(/\n/g, '<br>');
-        this.createMessageElement(formattedContent, 'assistant');
+    async fetchSection(drugId, sectionNumber) {
+        this.els.typingIndicator.style.display = 'flex';
+        try {
+            const response = await fetch(`${this.API_BASE}/search`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: "FETCH_SECTION", drug_id: drugId, section_number: sectionNumber })
+            });
+            const data = await response.json();
+            
+            if (data.type === 'section_content') {
+                this.addAssistantMessage(`<h3>${data.title}</h3><p>${data.content}</p>`);
+            } else {
+                this.addAssistantMessage("İçerik alınamadı.");
+            }
+        } catch (e) {
+            this.addAssistantMessage("Hata oluştu.");
+        } finally {
+            this.els.typingIndicator.style.display = 'none';
+        }
     }
 
-    createMessageElement(content, type) {
+    handleResponse(data) {
+        if (data.type === 'error') {
+            this.addAssistantMessage(data.message);
+        } 
+        else if (data.type === 'list') {
+            const container = document.createElement('div');
+            container.innerHTML = `<div class="message-content"><p>'${data.items[0]?.brand || 'Arama'}' ile eşleşen ilaçlar:</p></div>`;
+            
+            const listDiv = document.createElement('div');
+            listDiv.className = 'drug-list-container';
+            
+            data.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'drug-card';
+                
+                // Kart içeriği
+                const ingredientText = item.active_ingredient 
+                    ? item.active_ingredient.substring(0, 60) + (item.active_ingredient.length > 60 ? '...' : '')
+                    : '';
+                
+                card.innerHTML = `
+                    <div class="drug-card-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="drug-card-content">
+                        <div class="drug-card-brand">${item.brand || item.name}</div>
+                        <div class="drug-card-details">
+                            ${item.dosage ? `<span class="drug-card-dosage">${item.dosage}</span>` : ''}
+                            ${item.form ? `<span class="drug-card-form">${item.form}</span>` : ''}
+                        </div>
+                        ${ingredientText ? `<div class="drug-card-ingredient">${ingredientText}</div>` : ''}
+                    </div>
+                    <i class="fas fa-chevron-right drug-card-arrow"></i>
+                `;
+                
+                card.onclick = () => this.sendMessage(item.name);
+                listDiv.appendChild(card);
+            });
+            
+            this.addMessageElement(container, 'assistant');
+            this.els.chatMessages.lastChild.appendChild(listDiv);
+        } 
+        else if (data.type === 'detail') {
+            // İlaç ismini Title Case'e çevir
+            const drugNameFormatted = this.toTurkishTitleCase(data.drug_name);
+            
+            const html = `
+                <div class="drug-detail-card">
+                    <h2>${drugNameFormatted}</h2>
+                    <div class="summary-box">
+                        <strong>Özet Bilgi:</strong>
+                        <p>${data.summary}</p>
+                    </div>
+                    <div class="section-buttons">
+                        <p>Detaylı bilgi için başlıklara tıklayın:</p>
+                    </div>
+                </div>
+            `;
+            
+            const container = document.createElement('div');
+            container.innerHTML = html;
+            
+            const btnContainer = container.querySelector('.section-buttons');
+            data.sections.forEach(sec => {
+                const btn = document.createElement('button');
+                btn.className = 'section-btn';
+                btn.innerText = sec.title;
+                btn.onclick = () => this.fetchSection(data.drug_id, sec.id);
+                btnContainer.appendChild(btn);
+            });
+
+            this.addMessageElement(container, 'assistant');
+        }
+    }
+
+    addUserMessage(content) { 
+        const div = document.createElement('div');
+        div.className = 'message-content';
+        div.innerText = content;
+        this.addMessageElement(div, 'user'); 
+    }
+
+    addAssistantMessage(content) {
+        const div = document.createElement('div');
+        div.className = 'message-content';
+        div.innerHTML = content;
+        this.addMessageElement(div, 'assistant');
+    }
+
+    addMessageElement(contentDiv, type) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}-message`;
-        const avatarIcon = type === 'user' ? 'fa-user' : 'fa-robot';
-        messageDiv.innerHTML = `<div class="message-avatar"><i class="fas ${avatarIcon}"></i></div><div class="message-content">${content}</div>`;
+        
+        // Kullanıcı için user ikonu, asistan için medikal ikon
+        const avatarIcon = type === 'user' ? 'fa-user' : 'fa-file-medical';
+        const avatarDiv = document.createElement('div');
+        avatarDiv.className = 'message-avatar';
+        avatarDiv.innerHTML = `<i class="fas ${avatarIcon}"></i>`;
+        
+        messageDiv.appendChild(avatarDiv);
+        
+        if (typeof contentDiv === 'string') {
+            const c = document.createElement('div');
+            c.className = 'message-content';
+            c.innerHTML = contentDiv;
+            messageDiv.appendChild(c);
+        } else {
+            if (!contentDiv.classList.contains('message-content') && !contentDiv.querySelector('.drug-detail-card')) {
+                contentDiv.classList.add('message-content');
+            }
+            messageDiv.appendChild(contentDiv);
+        }
+
         this.els.chatMessages.appendChild(messageDiv);
         this.scrollChat();
     }
