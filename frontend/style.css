@@ -67,10 +67,247 @@ body { font-family: 'Poppins', sans-serif; background-color: #111827; color: #f0
 .chat-input-section { padding: 15px; background: rgba(0, 0, 0, 0.2); }
 .input-container { display: flex; gap: 10px; align-items: center; }
 .message-input { flex: 1; padding: 12px 20px; font-size: 1rem; border: none; border-radius: 25px; background: rgba(0, 0, 0, 0.3); color: white; outline: none; }
-.send-btn { width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); }
-.send-btn:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6); }
-.send-btn:active { transform: scale(0.95); }
+.send-btn { width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; background: #2563eb; color: white; }
 .typing-indicator { display: none; padding: 10px 20px; color: #d1d5db; font-style: italic; }
+
+/* Traffic Light System - Modern Badges */
+.warning-critical {
+    color: #991b1b;
+    background-color: #fee2e2;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9em;
+    border: 1px solid #fca5a5;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.warning-critical::before {
+    content: "⚠️";
+    font-size: 1em;
+}
+
+.warning-caution {
+    color: #92400e;
+    background-color: #fef3c7;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9em;
+    border: 1px solid #fcd34d;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.warning-caution::before {
+    content: "✋";
+    font-size: 1em;
+}
+
+.warning-info {
+    color: #1e40af;
+    background-color: #dbeafe;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9em;
+    border: 1px solid #93c5fd;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.warning-info::before {
+    content: "ℹ️";
+    font-size: 1em;
+}
 
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* İlaç Listesi - Kart Tasarımı */
+.drug-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    max-width: 100%;
+}
+
+.drug-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.drug-card:hover {
+    transform: translateX(4px);
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.drug-card:active {
+    transform: scale(0.98);
+}
+
+.drug-card-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.drug-card-icon i {
+    color: white;
+    font-size: 18px;
+}
+
+.drug-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.drug-card-brand {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.drug-card-details {
+    font-size: 0.85rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.drug-card-dosage {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.drug-card-form {
+    color: #64748b;
+    font-size: 0.82rem;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drug-card-ingredient {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drug-card-arrow {
+    color: #cbd5e1;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.drug-card:hover .drug-card-arrow {
+    transform: translateX(3px);
+    color: #3b82f6;
+}
+
+/* İlaç Detay Kartı */
+.drug-detail-card {
+    color: #1e293b;
+}
+
+.drug-detail-card h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.summary-box {
+    background: #ffffff;
+    border-left: 4px solid #3b82f6;
+    padding: 18px 20px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.summary-box strong {
+    color: #1e40af;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.summary-box p {
+    color: #334155;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.section-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.section-buttons > p {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.section-btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.section-btn:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Eski buton stili (fallback) */
+.drug-select-btn {
+    display: none; /* Artık kart kullanıyoruz */
+}

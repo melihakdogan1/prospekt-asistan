@@ -1,48 +1,74 @@
-# Python
+# ===== PYTHON =====
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
-
-# Virtual Environment
+.venv/
 venv/
 env/
+*.egg-info/
+dist/
+build/
 
-# IDE
+# ===== IDE =====
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS
+# ===== OS =====
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Logs
+# ===== LOGS =====
 *.log
+logs/
+processing_errors.log
+partial_extraction.log
 
-# Development/Test Files
+# ===== DATABASE (Büyük dosyalar - GitHub'a yüklenMEZ) =====
+*.db
+*.sqlite3
+data/
+frontend/data/
+chroma_db/
+
+# ===== PROJE SPESİFİK - SİLİNECEKLER =====
+silinecekler/
+
+# ===== SCRAPER GEÇİCİ DOSYALAR =====
+scraper/failed_downloads.txt
+scraper/skipped_pages.txt
+
+# ===== TEST / DEBUG DOSYALARI =====
 test_*.py
+check_*.py
+debug_*.py
 *_test.py
+final_test.py
+inspect_*.py
+verify_*.py
+
+# ===== DEVELOPMENT ARAÇLARI =====
 ngrok.exe
 ngrok.zip
 deploy.bat
-veritabani_olusturma.log
 
-# Temporary Files
+# ===== GEÇİCİ DOSYALAR =====
 *.tmp
 *.temp
-logs/
-veritabani_olusturma.log
+manual_review_drug_names.txt
 
-# Data files (exclude all data from git)
-data/
-
-# Environment variables
+# ===== ENVIRONMENT VARIABLES =====
 .env
 .env.local
+.env.production
 
-# Deployment
-.vercel
+# ===== DEPLOYMENT =====
+.vercel/
 .railway/
 
-# Node modules
+# ===== NODE =====
 node_modules/
+package-lock.json
