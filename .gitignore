@@ -33,6 +33,7 @@ partial_extraction.log
 data/
 frontend/data/
 chroma_db/
+ilac_prospektus.db
 
 # ===== PROJE SPESİFİK - SİLİNECEKLER =====
 silinecekler/
