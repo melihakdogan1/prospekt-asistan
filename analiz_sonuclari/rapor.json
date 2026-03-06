@@ -1,0 +1,10 @@
+{
+  "total_files": 3165,
+  "successful": 2782,
+  "failed": 383,
+  "success_rate": "87.90%",
+  "quality_score": "98.2%",
+  "usage_route_coverage": "2702/2782 (97.1%)",
+  "license_holder_coverage": "2748/2782 (98.8%)",
+  "active_substance_coverage": "2771/2782 (99.6%)"
+}

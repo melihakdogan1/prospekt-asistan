@@ -283,10 +283,6 @@ def create_smart_summary(raw_text: str, active_ingredient: str = None) -> str:
         return ' '.join(meaningful) + '.' if meaningful else cleaned[:400]
     
     return '<br>'.join(summary_parts)
-    if last_space != -1:
-        return text[:last_space] + "..."
-        
-    return text[:limit] + "..."
 
 def format_traffic_lights(text: str) -> str:
     """Metindeki önemli uyarıları renklendirir."""
@@ -366,7 +362,7 @@ def get_drug_summary(drug_id: int):
     
     return {
         "type": "detail",
-        "drug_name": drug['name'],
+        "drug_name": drug['drug_name'],
         "active_ingredient": drug['active_ingredient'],
         "summary": summary_text,
         "sections": section_list,
@@ -457,14 +453,30 @@ async def search(request: SearchRequest):
     query_lower = turkish_lower(query)
     query_upper = turkish_upper(query)
     
-    # Birden fazla varyasyonla ara
-    cursor.execute("""
-        SELECT id, name, active_ingredient FROM drugs 
-        WHERE name LIKE ? 
-           OR name LIKE ? 
-           OR name LIKE ?
+    # i -> İ ve ı -> I dönüşümlü varyasyonlar
+    query_i_variants = [
+        query,
+        query.replace('i', 'İ').replace('I', 'ı'),
+        query.replace('İ', 'i').replace('ı', 'I'),
+        query_lower,
+        query_upper
+    ]
+    
+    # Birden fazla varyasyonla ara - DISTINCT ile duplicate'leri engelle
+    # Sadece geçerli ilaç isimlerini al (en az 5 karakter, sayı veya harf ile başlayan)
+    placeholders = ' OR '.join(['drug_name LIKE ?' for _ in query_i_variants])
+    cursor.execute(f"""
+        SELECT DISTINCT drug_name, MIN(id) as id, active_ingredient FROM drugs 
+        WHERE ({placeholders})
+          AND length(drug_name) > 5
+          AND (substr(drug_name, 1, 1) BETWEEN 'A' AND 'Z' 
+               OR substr(drug_name, 1, 1) BETWEEN 'a' AND 'z'
+               OR substr(drug_name, 1, 1) BETWEEN '0' AND '9'
+               OR substr(drug_name, 1, 1) = '%')
+        GROUP BY drug_name
+        ORDER BY drug_name
         LIMIT 10
-    """, (f'%{query}%', f'%{query_lower}%', f'%{query_upper}%'))
+    """, tuple(f'%{v}%' for v in query_i_variants))
     sql_results = cursor.fetchall()
     conn.close()
     
@@ -474,18 +486,29 @@ async def search(request: SearchRequest):
         if len(sql_results) == 1:
             return get_drug_summary(sql_results[0]['id'])
         
-        # Çok sonuç varsa listele (parse edilmiş isimlerle)
+        # Çok sonuç varsa listele (parse edilmiş isimlerle) - duplicate isimleri filtrele
         items = []
+        seen_names = set()
         for row in sql_results:
-            parsed = parse_drug_name(row['name'])
+            drug_name = row['drug_name']
+            # Aynı isimli ilaçları tekrar ekleme
+            if drug_name in seen_names:
+                continue
+            seen_names.add(drug_name)
+            
+            parsed = parse_drug_name(drug_name)
             items.append({
                 "id": row['id'],
-                "name": row['name'],  # Orijinal isim (arama için)
+                "name": drug_name,  # Orijinal isim (arama için)
                 "brand": parsed['brand'],
                 "dosage": parsed['dosage'],
                 "form": parsed['form'],
                 "active_ingredient": row['active_ingredient']
             })
+        
+        # Filtreleme sonrası tek sonuç kaldıysa direkt detaya git
+        if len(items) == 1:
+            return get_drug_summary(items[0]['id'])
         
         return {
             "type": "list",
@@ -518,7 +541,7 @@ async def search(request: SearchRequest):
         # Bu ilacı SQL'den bulup detayını getir
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT id FROM drugs WHERE name = ?", (drug_name,))
+        cursor.execute("SELECT id FROM drugs WHERE drug_name = ?", (drug_name,))
         row = cursor.fetchone()
         conn.close()
         

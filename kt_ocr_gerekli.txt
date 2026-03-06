@@ -1,0 +1,992 @@
+=== OCR Gerekli Dosyalar (330 adet) ===
+
+% 5 DEKSTROZ LAKTATLI RINGER SOLÜSYONU (CAM ŞIŞEDE)_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+% 5 DEKSTROZ LAKTATLI RINGER SOLÜSYONU (MEDIFLEKS TORBA)_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+%1.5 GLISIN İRIGASYON SOLÜSYONU_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+%10 FREAMINE III ENJEKTABL AMIMOASIT SOLÜSYONU_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+%5 DEKSTROZ LAKTATLI RİNGER SOLÜSYONU (CAM ŞİŞEDE)_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+300 MG SEFDINIR; 125 MG KLAVULANIK ASIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+5- FLUOROURASIL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+5- FU INJECTION 250 MG_ 5 ML_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+5-FLUOROURACIL BIOSYN 1000 MG_20 ML AMPUL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+5-FLUOROURACIL BIOSYN 500 MG_10 ML AMPUL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+5-FLUOROURACIL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ABEXTIN 2MG_ML ORAL ÇÖZELTI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ABSIKSIMAB_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ACARIS 100MG TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+ACARIS 50MG TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+ACNOR 100 MG TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+ACNOR 50 MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ACSONAT 35MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ACTEDAY 35 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ADDAMEL N İNTRAVENÖZ İNFÜZYON İÇIN KONSANTRE SOLÜSYON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ADONIS 100MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ADONIS 25MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ADONIS 50MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ADRIBLASTINA 10 MG LIYOFILIZE TOZ IÇEREN ENJEKTABL FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AEROFOR 12MCG İNHALASYON İÇIN TOZ İÇEREN BLISTER_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AEROFOR 6 MCG İNHALASYON İÇIN TOZ İÇEREN BLISTER_KT.pdf
+  Sebep: igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+AEROSA 25 MCG_250 MCG AEROSOL İNHALER_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AEROSA 25 MCG_50 MCG AEROSOL İNHALER_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AIRLINE 10 MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AIRLINE 4 MG ÇIĞNEME TABLETI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AIRLINE 5 MG ÇIĞNEME TABLETI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AIRMOL 4MG SAŞE_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AIRPACK 12_200 MCG INHALASYON IÇIN TOZ IÇEREN KAPSÜL_KUB.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+AIRPACK 12_400 MCG INHALASYON IÇIN TOZ IÇEREN BLISTER_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AIRPLUS 50_100 MCG DISCAIR İNHALASYON İÇIN TOZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AKARBOZ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AKINETON 2 MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AKSIL-5 TINTED KREM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALARIN 1MG_1ML ŞURUP_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), $i$ (dolar işareti)
+
+ALBUNEX2.5MG_2.5ML NEBÜLİZASYON İÇİN İNHALASYON ÇÖZELTİSİ İÇEREN TEK DOZLUK FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALECAST 10MG FILM KAPLI TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ALEFORT 70 MG_2800 IU EFERVESAN TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALENDRONAT SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALENDRONAT, VITAMIN D3_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFA TOKOFEROL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASID 250 MG IM_IV ENJEKSIYON İÇIN TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASID 250MG I.M.ENJEKSIYON İÇIN TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASID 50 MG IM_IV ENJEKSIYON IÇIN TOZ İÇEREN FLAKON0_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASID 500 MG I.M.ENJEKSIYON İÇIN TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+Alfasid 500 mg IM Enjeksiyon için Toz İçeren Flakon_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASID 500 MG IM_IV ENJEKSIYON İÇIN TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALFASİD 250MG_5ML ORAL SÜSPANSİYON İÇİN KURU TOZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ALMENTA 10MG_G ORAL DAMLA_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALOND 25MG KAPSÜL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALOND 300MG KAPSÜL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALOND 75MG KAPSÜL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALTARGO %1 MERHEM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALUREN 20MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALUREN 40MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALUREN 80MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ALÜMINYUM KLORÜR HIDROKSIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMINOVEN %10 İNTRAVENÖZ İNFÜZYON İÇIN STERIL-APIROJEN SOLÜSYON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMOKLAVIN -BID 400_57 MG FORTE ORAL SÜSPANSIYON HAZIRLAMAK İÇIN KURU TOZ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMOKSISILIN - KLAVULANIK ASIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMOKSİLAV BID FORT SÜSPANSİYON HAZIRLAMAK İÇİN KURU TOZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMOKSİLAV BID PEDİATRİK SÜSPANSİYON HAZIRLAMAK İÇİN KURU TOZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPISILIN SODYUM, SULBAKTAM SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPISILIN SODYUM_SULBAKTAM SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPISILIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPISILIN_SULBAKTAM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPISINA 125MG_5ML SÜSPANSIYON HAZIRLAMAK İÇIN KURU TOZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPISINA 250MG_5ML SÜSPANSIYON HAZIRLAMAK İÇIN KURU TOZ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPISINA KAPSÜL 250MG_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPISINA KAPSÜL 500MG_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPİSİD 1 G IM IENJEKTABL TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 1 G IM_IV ENJEKTABL TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 2 G IM_IV ENJEKTABL TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 250 MG IM ENJEKTABL TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 250 MG IM_IV ENJEKTABL TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 375 MG FİLM TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİD 750 MG FİLM TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AMPİSİLİN SODYUM + SULBAKTAM SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AMPİSİLİN SODYUM,SULBAKTAM SODYUM_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ANGIRAM 5MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANTI ASIDOZ YUMUŞAK JELATIN KAPSÜL 500MG_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANTI-D IMMUNGLOBULIN GRIFOLS 1500 IU (300 MCG)_2 ML IM ENJEKSIYON IÇIN ÇÖZELTI IÇEREN KULLANIMA HAZIR ENJEKTÖR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANTI-FOSFAT AL KAPSÜL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANTI-FOSFAT CA 700MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANTISTAX 180MG SERT JELATIN KAPSÜL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ANZATAX 150 MG_25 ML ENJEKTABL SOLÜSYON IÇEREN FLAKON_KT.pdf
+  Sebep: EEer (bozuk Eğer), iqin (bozuk için)
+
+APILEP 300 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+APILEP 600 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+APO-ALPRAZ 1MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+APRODENT FORT FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARCALİON 200 MG DRAJE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AREDIA 90 MG IV INFÜZYON IÇIN TOZ IÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARIZOPRESS 10MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARIZOPRESS 15MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARIZOPRESS 20MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARIZOPRESS 30MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AROMİSİN 25 MG DRAJE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARTRODAR 50 MG KAPSÜL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ARYPEZ 5 MG FİLM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ARİNNA 20 MG ENTERİK KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-ALDEKS 70MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-ATOKS 20MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-ATOKS 40MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-ATOKS 80MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-CILOG 20MG FILM KAPLI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-CILOG 40 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-CLODIP 75 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-GABAPEN 600MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-GABAPEN 800MG FILM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-GLIKLAZ 30 MG MR TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-KALMEKS 100MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-KALMEKS 200MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-KALMEKS 25MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-LUNEX10MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-LUNEX20MG TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PAROKS 20 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PAROKS 30 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PINEKS 10 MG AĞIZDA DAĞILABILIR TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PINEKS 15 MG AĞIZDA DAĞILABILIR TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PINEKS 20 MG AĞIZDA DAĞILABILIR TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-PINEKS 5 MG AĞIZDA DAĞILABILIR TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-RİSPER 1MG_ML ORAL ÇÖZELTİ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-SETRAL 50MG FİLM TAB._KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-TOPIRAM 100MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-TOPIRAM 200MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-TOPIRAM 25MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AS-TOPIRAM 50MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ASIKLOVIR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ASİST 200 MG GRANÜL IÇEREN SAŞE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ATENOLOL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ATOR40 MG FİLM TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+ATORVASTATIN KALSIYUM TRIHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ATRIVO STERI-NEB 500MCG_2ML NEBULIZASYON İÇIN İNHALASYON ÇÖZELTISI İÇEREN TEK DOZLUK AMPUL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ATROPİNE SÜLFAT İE AMPUL 1 MG_1 ML_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+AURORİX 150 MG FİLM KAPLI TABLET- GEBZE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AURORİX 150 MG FİLM KAPLI TABLET- ÇERKEZKÖY_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AUROVALS 160MG FİLM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AUROVALS 320MG FİLM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AUROVALS 80MG FİLM KAPLI TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AVANDAMET 2 MG_1000 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AVANDAMET 2 MG_500 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AVANDAMET 4 MG_1000 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AVANDIA 4 MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AVİTOREL 20 MG FİLM TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+AVİTOREL 40 MG FİLM TABLET_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+AXEPTA I.M._I.V. 50MG_2ML ENJEKSIYONLUK ÇÖZELTI İÇEREN AMPUL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AXİD 25MG_ML İ.V. İNFÜZYON IÇIN ENJEKTABL AMPUL (5 ML)_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AXİD 300 MG KAPSÜL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+AZASİTİDİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AZIMBRA 10MG FILM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+AZİDA 100 MG SC ENJEKSİYONLUK SÜSPANSİYON İÇİN TOZ İÇEREN FLAKON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+B1, B2, B6, B12, NİKOTİNAMİD, KALSİYUM PANTETONAT, D-BİOTİN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+B1,B6,B12 VİTAMİNİ, ALFA LİPOİK ASİT_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+B12 VITAMINI_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+BARCA 500 MG FİLM TABLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BENDAMUSTIN HIDROKLORÜR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), iqin (bozuk için)
+
+BENSIKLAN HIDROJEN FUMARAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BENZOIL PEROKSIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BENZİDAMİN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BETA-KAROTEN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+Betametazon Dipropionat_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BETAMETAZON SODYUMFOSFAT + BETAMETAZON DIPROPIYONAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BIPERIDEN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+BOSENTAN MONOHİDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+C-1 ESTERAZ İNHIBITÖRÜ 500 U_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DAKARBAZIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DEKSKTOPROFEN TROMETAMOL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DEKSLANSOPRAZOL_DOMPERIDON PELLET_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DEKSLANSOPRAZOL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), iqin (bozuk için)
+
+DEKSPANTENOL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DEKSRABEPRAZOL SODYUM 25,00 MG_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DEKSTROZ MONOHIDRAT, DOBUTAMIN HIDROKLORUR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DEKSTROZ MONOHİDRAT, SODYUM KLORÜR, SODYUM LAKTAT, POTASYUM KLORÜR, KALSİYUM KLORÜR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DEMIR III AMONYUM SITRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DESFLURAN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DESLORATIDIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DIASEREIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+Dl-alfa tokoferol asetat_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DOKSAZOSİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DOKSOFILIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DOKSOFİLİN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+DONEPEZIL HCL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), iqin (bozuk için)
+
+DONEPEZIL HIDROKLORÜR, MEMANTIN HIDROKLORÜR, GINKGO BILOBA KURU EKSTRESI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DULOKSETİN HİDROKLORÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+DİKLOFENAK_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), $i$ (dolar işareti)
+
+ENTAKAPON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), iqin (bozuk için)
+
+ENTEKAVIR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+EPLERENON_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), iqin (bozuk için)
+
+EPİRUBİSİN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ERİTROMİSIN+İSOTRETİNOİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ESANSIYEL AMINO ASIT SOLÜSYONU_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ESTRADİOL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ETODOLAK_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ETOMIDATE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+FENIRAMIN MALEAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+FESOTERODIN FUMARAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+FLOROMETOLON,TETRIZOLIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+FORMOTEROL FUMARAT DIHIDRAT, BUDESONID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+FORMOTEROL FUMARAT DIHIDRAT_KT.pdf
+  Sebep: igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+FORMOTEROL FUMARAT DİHİDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GABAPENTIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GABAPENTİN_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir), $i$ (dolar işareti)
+
+GEMSITABIN HIDROKLORÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GENTAMISIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GLISIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GLİBENKLAMİD_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+GLİKLAZİD_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GLİSERİL GAYAKOLAT, EFEDRİN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GRANİSTRON HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+GİNKO BİLOBA KURU EKSTRESİ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+HALOMETAZON MONOHİDRAT, FUSİDİK ASİT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+HPV TIP 6, 11, 16, 18_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+IMIGLUSERAZ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+IMIPENEM MONOHIDRAT+SILASTATIN SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+INSAN ANTI-D (RH) IMMUNGLOBULIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+IPRATROPIUM BROMUR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSIYUM ASETAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSIYUM DOBESILAT MONOHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSIYUM FOLINAT PENTAHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSIYUM FOLINAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSIYUM KARBONAT- KALSIYUM LAKTAT GLUKONAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSİYUM FOLİNAT PENTAHİDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSİYUM KARBONAT - MAGNEZYUM KARBONAT - SİMETİKON_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+KALSİYUM KARBONAT - MAGNEZYUM KARBONAT_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir), $i$ (dolar işareti)
+
+KALSİYUM KARBONAT VİTAMİN D3_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSİYUM KARBONAT+MAGNEZYUM KARBONAT+SODYUM ALJİNAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSİYUM KARBONAT+MAGNEZYUM KARBONAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KALSİYUM KARBONAT+VİTAMIN D3_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KETOROLAK TROMETAMİN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer)
+
+KIRMIZI ÜZÜM YAPRAĞI KURU EKSTRESI_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KLOPIDOGREL BISÜLFAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KLORHEKSİDİN DİGLUKONAT, BENZİDAMİN HİDROKLORÜR_KT.pdf
+  Sebep: igermektedir (küçük i - içermektedir)
+
+KODEIN FOSFAT, EFEDRIN HIDROKLORÜR, TIOKOL, SODYUM SITRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+KÜB IÇERIĞINE BAKINIZ_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+KÜB'E BAKINIZ_KT.pdf
+  Sebep: EEer (bozuk Eğer), iqin (bozuk için)
+
+L-TRIIODOTIRONIN SODYUM(T3),L-TIROKSIN SODYUM(T4)_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+LEFLUNOMIDE_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+LEVETİRASETAM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+LEVODOPA + KARBİDOPA + ENTAKAPON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+LEVODOPA+KARBİDOPA+ENTAKAPON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+LORATADIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), $i$ (dolar işareti)
+
+LOSARTAN POTASYUM,HİDROKLOROTİYAZİD_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+MELOKSIKAM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+MEMANTINHCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+METOKSİ-İZOBUTİL-İSONİTRİL-BAKIR-TETRAFLOROBORAT_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+METOPROLOL TARTARAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+MINOKSIDIL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+MOKLOBEMİD_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+NAPROKSEN SODYUM+KODEIN FOSFAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+NAPROKSEN SODYUN + KODEIN FOSFAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+NATEGLINID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+NEBİVOLOL HİDROKLORÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+NEOMISIN SÜLFAT;POLIMIKSIN B SÜLFAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OFLOKSASIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OKSKARBAZEPIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OKSOLAMİN FOSFAT_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+OLANZAPIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OLMESARTAN MEDOKSOMIL + HIDROKLOROTIYAZID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OLMESARTAN MEDOKSOMIL+HIDROKLOROTIYAZID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+OTILONYUM BROMÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PAMIDRONAT DISODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PANTOPRAZOL SODYUM SESKIHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PARASETAMOL _ ASETILSALISILIK ASIT _ KAFEIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PAROKSETIN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PENSIKLOVIR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PIOGLITAZON HIDROKLORÜR VE METFORMIN HIDROKLORÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PIOGLITAZON HIDROKLORÜR, GLIMEPIRID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PREGABALIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PSÖDOEFEDRIN HCL,GUAIFENESIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+PİOGLİTAZON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RAMIPRIL_HIDROKLOROTIYAZID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RAMIPRIL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RAMİPRİL+HİDROKLOROTİYAZİD_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RAMİPRİL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RETAPAMULIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RISEDRONAT SODYUM, VITAMIN D3_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+RISEDRONAT SODYUM, VITAMIN D³_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+RISEDRONAT SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RISPERIDON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+RIVASTIGMIN HIDROJEN TARTARAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ROSIGLITAZON+METFORMIN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ROSIGLITAZON_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SACCHAROMYCES BOULARDİİ_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SALMETEROL KSINAFOAT, FLUTIKAZON PROPIYONAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFAKLOR MONOHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFAKLOR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFDINIR, KLAVULANIK ASIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFDITOREN PIVOKSIL_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+SEFPROZIL_KT.pdf
+  Sebep: igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+SEFPROZİL_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), igermektedir (küçük i - içermektedir), iqin (bozuk için)
+
+SEFTIZOKSIM SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFUROKSIM AKSETIL_KLAVULANIK ASIT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SEFUROKSIM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SERTRALIN HCL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SILDENAFIL SITRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SIPROFLOKSASIN HIDROKLORÜR MONOHIDRAT, SIPROFLOKSASIN HIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SIPROFLOKSASIN LAKTAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SODYUM BIKARBONAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SODYUM FUSIDAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+STRONSIYUM RANELAT_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+SULBAKTAM SODYUM+AMPISILIN SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SULBAKTAM SODYUM, AMPISILIN SODYUM_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SULBUTİAMİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+SULTAMISILIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+SULTAMİSİLİN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+SÜKSINILE JELATIN_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı)
+
+TELMİSARTAN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TEOFİLİN ETİLENDİAMİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TERBİNAFİN  HİDROKLORÜR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+TIOTROPIUM BROMÜR ANHIDRUS, FORMOTEROL FUMARAT DIHIDRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TIOTROPIUM BROMÜR ANHIDRUS, SIKLESONID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TOPIRAMAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TİOKONAZOL TİNİDAZOL_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+TİOKONAZOL, TİNİDAZOL, LİDOKAİN HCL_KT.pdf
+  Sebep: EEer (bozuk Eğer), $i$ (dolar işareti)
+
+VALETAMAT BROMÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+VALSARTAN+HIDROKLOROTIYAZID_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+VALSARTAN,HIDROKLOROTIYAZID_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+VALSARTAN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+VENLAFAKSİN HİDROKLORÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+VENLAFAKSİN_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+VITAMIN E_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+VİTAMİN E,C_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+ÖSTRIOL_KT.pdf
+  Sebep: EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+İDEBENON_MEMANTİN HİDROKLORÜR_KT.pdf
+  Sebep: TALiMATI (küçük i - TALIMATI olmalı), EEer (bozuk Eğer), igermektedir (küçük i - içermektedir)
+
+İPRATROPIUM BROMÜR, FENOTEROL HIDROBROMÜR_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
+İZOSORBID DINITRAT_KT.pdf
+  Sebep: Metin yok veya çok kısa
+
