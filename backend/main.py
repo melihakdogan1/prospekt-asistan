@@ -14,6 +14,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
+from rag_query_pipeline import ProspektRAG
 
 # Logging
 logging.basicConfig(level=logging.INFO)
@@ -29,7 +30,8 @@ MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 # Global State
 app_state = {
     "collection": None,
-    "embedding_function": None
+    "embedding_function": None,
+    "rag_pipeline": None,
 }
 
 # --- Yardımcı Fonksiyonlar ---
@@ -414,6 +416,14 @@ async def lifespan(app: FastAPI):
             app_state["collection"].query(query_texts=["test"], n_results=1)
         else:
             logger.warning("⚠️ ChromaDB bulunamadı! Sadece isim araması çalışacak.")
+
+        # Yeni RAG pipeline (Chroma + SQLite + Gemini)
+        try:
+            app_state["rag_pipeline"] = ProspektRAG()
+            logger.info("✅ RAG pipeline hazır.")
+        except Exception as rag_error:
+            app_state["rag_pipeline"] = None
+            logger.error(f"❌ RAG pipeline başlatılamadı: {rag_error}")
             
     except Exception as e:
         logger.error(f"❌ Başlatma hatası: {e}")
@@ -436,6 +446,36 @@ class SearchRequest(BaseModel):
     query: str
     drug_id: int = None
     section_number: int = None
+
+
+class RagAskRequest(BaseModel):
+    query: str
+    top_k: int = 8
+
+
+@app.post("/rag/ask")
+async def rag_ask(request: RagAskRequest):
+    query = request.query.strip()
+    if not query:
+        raise HTTPException(status_code=400, detail="Sorgu boş olamaz.")
+
+    rag = app_state.get("rag_pipeline")
+    if rag is None:
+        raise HTTPException(status_code=503, detail="RAG pipeline hazır değil.")
+
+    try:
+        top_k = max(3, min(int(request.top_k), 12))
+        result = rag.ask(query=query, top_k=top_k)
+        return {
+            "type": "rag",
+            "query": result.get("query", query),
+            "answer": result.get("answer", ""),
+            "sources": result.get("sources", []),
+            "retrieved_count": result.get("retrieved_count", 0),
+        }
+    except Exception as e:
+        logger.exception("RAG cevap üretim hatası")
+        raise HTTPException(status_code=500, detail=f"RAG hatası: {e}")
 
 @app.post("/search")
 async def search(request: SearchRequest):

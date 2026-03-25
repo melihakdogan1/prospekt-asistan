@@ -62,7 +62,7 @@ class ProspektAsistan {
     showChat() {
         this.els.chatWrapper.classList.add('visible');
         if (this.els.chatMessages.children.length === 0) {
-            this.addAssistantMessage("Merhaba! Ben ProspektAsistan. Size hangi ilaç hakkında bilgi verebilirim?");
+            this.addAssistantMessage("Merhaba! Ben ProspektAsistan. İlaçlarla ilgili sorunuzu yazın, kaynaklı yanıt vereyim.");
         }
     }
 
@@ -81,14 +81,25 @@ class ProspektAsistan {
         this.scrollChat();
 
         try {
-            const response = await fetch(`${this.API_BASE}/search`, {
+            const response = await fetch(`${this.API_BASE}/rag/ask`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: message })
+                body: JSON.stringify({ query: message, top_k: 8 })
             });
-            
-            const data = await response.json();
-            this.handleResponse(data);
+
+            if (response.ok) {
+                const data = await response.json();
+                this.handleResponse(data);
+            } else {
+                // Geriye donuk uyumluluk: eski endpoint
+                const fallbackResp = await fetch(`${this.API_BASE}/search`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: message })
+                });
+                const fallbackData = await fallbackResp.json();
+                this.handleResponse(fallbackData);
+            }
 
         } catch (error) {
             console.error('Hata:', error);
@@ -123,7 +134,15 @@ class ProspektAsistan {
     handleResponse(data) {
         if (data.type === 'error') {
             this.addAssistantMessage(data.message);
-        } 
+        }
+        else if (data.type === 'rag') {
+            const answerHtml = this.formatRagAnswer(data.answer || 'Yanıt üretilemedi.');
+            const sourcesHtml = this.renderSources(data.sources || []);
+            this.addAssistantMessage(`
+                <div class="rag-answer">${answerHtml}</div>
+                ${sourcesHtml}
+            `);
+        }
         else if (data.type === 'list') {
             const container = document.createElement('div');
             container.innerHTML = `<div class="message-content"><p>'${data.items[0]?.brand || 'Arama'}' ile eşleşen ilaçlar:</p></div>`;
@@ -193,6 +212,38 @@ class ProspektAsistan {
 
             this.addMessageElement(container, 'assistant');
         }
+    }
+
+    formatRagAnswer(text) {
+        const escaped = (text || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        return escaped
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n/g, '<br>');
+    }
+
+    renderSources(sources) {
+        if (!sources.length) return '';
+
+        const items = sources.map((s) => {
+            const score = typeof s.score === 'number' ? s.score.toFixed(3) : s.score;
+            return `
+                <div class="source-item">
+                    <div class="source-title">${s.drug_name || 'Bilinmeyen ilaç'} - B${s.bolum_no || '-'}</div>
+                    <div class="source-meta">Skor: ${score} | ${s.section_title || 'Başlık yok'}</div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div class="rag-sources">
+                <div class="rag-sources-title">Kullanılan Kaynaklar</div>
+                ${items}
+            </div>
+        `;
     }
 
     addUserMessage(content) { 
