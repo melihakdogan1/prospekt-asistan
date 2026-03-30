@@ -22,10 +22,10 @@ logger = logging.getLogger(__name__)
 
 # Yollar
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "ilac_prospektus.db"
-CHROMA_DB_PATH = BASE_DIR / "data" / "chroma_db"
-COLLECTION_NAME = "ilac_prospektusleri"
-MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+DB_PATH = BASE_DIR / "data" / "prospekt_metadata.db"
+CHROMA_DB_PATH = BASE_DIR / "data" / "chroma_prospekt"
+COLLECTION_NAME = "prospektus"
+MODEL_NAME = "intfloat/multilingual-e5-large"
 
 # Global State
 app_state = {
@@ -343,7 +343,7 @@ def get_drug_summary(drug_id: int):
     cursor = conn.cursor()
     
     # İlaç bilgilerini al
-    cursor.execute("SELECT * FROM drugs WHERE id = ?", (drug_id,))
+    cursor.execute("SELECT *, active_substance as active_ingredient FROM ilaclar WHERE id = ?", (drug_id,))
     drug = cursor.fetchone()
     
     # Bölüm 1'i (Nedir?) al - Özet için
@@ -506,7 +506,7 @@ async def search(request: SearchRequest):
     # Sadece geçerli ilaç isimlerini al (en az 5 karakter, sayı veya harf ile başlayan)
     placeholders = ' OR '.join(['drug_name LIKE ?' for _ in query_i_variants])
     cursor.execute(f"""
-        SELECT DISTINCT drug_name, MIN(id) as id, active_ingredient FROM drugs 
+        SELECT DISTINCT drug_name, MIN(id) as id, active_substance as active_ingredient FROM ilaclar 
         WHERE ({placeholders})
           AND length(drug_name) > 5
           AND (substr(drug_name, 1, 1) BETWEEN 'A' AND 'Z' 
