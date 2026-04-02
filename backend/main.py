@@ -14,7 +14,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
-from rag_query_pipeline import ProspektRAG
+try:
+    from .rag_query_pipeline import ProspektRAG
+except ImportError:
+    from rag_query_pipeline import ProspektRAG
 
 # Logging
 logging.basicConfig(level=logging.INFO)
@@ -402,31 +405,45 @@ def get_section_content(drug_id: int, section_number: int):
 # --- Lifespan ---
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    logger.info("🚀 Sistem başlatılıyor...")
+
+    # Legacy /search vektör yolu için embedding function
     try:
-        logger.info("🚀 Sistem başlatılıyor...")
         if app_state["embedding_function"] is None:
             logger.info(f"🧠 Embedding modeli yükleniyor: {MODEL_NAME}")
             app_state["embedding_function"] = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=MODEL_NAME)
-            
+    except Exception as emb_error:
+        app_state["embedding_function"] = None
+        logger.warning(f"⚠️ Legacy embedding function yüklenemedi: {emb_error}")
+
+    # ChromaDB bağlantısı (embedding conflict toleranslı)
+    try:
         if os.path.exists(CHROMA_DB_PATH):
             client = chromadb.PersistentClient(path=str(CHROMA_DB_PATH))
-            app_state["collection"] = client.get_collection(name=COLLECTION_NAME, embedding_function=app_state["embedding_function"])
+            try:
+                app_state["collection"] = client.get_collection(name=COLLECTION_NAME, embedding_function=app_state["embedding_function"])
+                # Warm-up (text query)
+                app_state["collection"].query(query_texts=["test"], n_results=1)
+            except Exception as conflict_error:
+                logger.warning(f"⚠️ Embedding conflict, fallback uygulanıyor: {conflict_error}")
+                app_state["collection"] = client.get_collection(name=COLLECTION_NAME)
+                # Legacy text query yerine query_embeddings kullanılacak
+                app_state["embedding_function"] = None
             logger.info("✅ ChromaDB bağlandı.")
-            # Warm-up
-            app_state["collection"].query(query_texts=["test"], n_results=1)
         else:
+            app_state["collection"] = None
             logger.warning("⚠️ ChromaDB bulunamadı! Sadece isim araması çalışacak.")
+    except Exception as chroma_error:
+        app_state["collection"] = None
+        logger.error(f"❌ ChromaDB başlatılamadı: {chroma_error}")
 
-        # Yeni RAG pipeline (Chroma + SQLite + Gemini)
-        try:
-            app_state["rag_pipeline"] = ProspektRAG()
-            logger.info("✅ RAG pipeline hazır.")
-        except Exception as rag_error:
-            app_state["rag_pipeline"] = None
-            logger.error(f"❌ RAG pipeline başlatılamadı: {rag_error}")
-            
-    except Exception as e:
-        logger.error(f"❌ Başlatma hatası: {e}")
+    # Yeni RAG pipeline (Chroma + SQLite + Gemini)
+    try:
+        app_state["rag_pipeline"] = ProspektRAG()
+        logger.info("✅ RAG pipeline hazır.")
+    except Exception as rag_error:
+        app_state["rag_pipeline"] = None
+        logger.error(f"❌ RAG pipeline başlatılamadı: {rag_error}")
     
     yield
     app_state["collection"] = None
@@ -559,11 +576,28 @@ async def search(request: SearchRequest):
     # 3. Vektör Araması (Kavramsal - Sadece isim bulunamadıysa)
     collection = app_state["collection"]
     if collection and len(query) > 3:
-        results = collection.query(
-            query_texts=[query],
-            n_results=3,
-            include=["metadatas", "distances"]
-        )
+        try:
+            if app_state.get("embedding_function") is not None:
+                results = collection.query(
+                    query_texts=[query],
+                    n_results=3,
+                    include=["metadatas", "distances"]
+                )
+            elif app_state.get("rag_pipeline") is not None:
+                query_emb = app_state["rag_pipeline"].embed_query(query)
+                results = collection.query(
+                    query_embeddings=query_emb.tolist(),
+                    n_results=3,
+                    include=["metadatas", "distances"]
+                )
+            else:
+                results = None
+        except Exception as vector_error:
+            logger.warning(f"⚠️ Legacy vektör arama atlandı: {vector_error}")
+            results = None
+
+        if not results or not results.get("distances") or not results["distances"][0]:
+            return {"type": "error", "message": "Aradığınız kriterlere uygun bir ilaç bulamadım."}
         
         # Eşik Değeri (Threshold) Kontrolü
         # Distance ne kadar küçükse o kadar benzerdir. 0.5'in üstü genelde alakasızdır.
