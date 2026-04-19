@@ -1,0 +1,88 @@
+{
+  "sample_files": [
+    {
+      "file_name": "AMPİSİD 1 G IM IENJEKTABL TOZ İÇEREN FLAKON_KT.pdf",
+      "ilk_500_karakter": "KULLAIIMA TALIMATI\nAMPiSiD I g IM Enjektabl Toz iqeren Flakon\nKas igine uygulanrr.\no\nEtkin madde: Her flakon 1000 mg ampisilin (ampisilin sodyum olarak) ve 500 mg\nsulbaktam (sulbaktam sodyum olarak) iqerir. Her eritici ampul 3.5 ml enjeksiyonluk\ndistile su ve % 0.5 lidokain hidrokloriir igerir.\no\nYardtmu maddeler: Mevcut depil.\nBu ilacr kullanmaya baglamadan tince bu KULLANMA TALiMATIM dikkatlice\nokuyunuz, gfinki sizin igin 6nemli bilgiler igermektedir.\no\nKullanma talimaltnr sakloyrnrz. Daha son",
+      "tespit_edilen_bozukluklar": [
+        "TALiMATI",
+        "TALiMAT",
+        "EEer",
+        "igermektedir",
+        "iqin",
+        "KULLANMA TALiMATI"
+      ]
+    },
+    {
+      "file_name": "AEROFOR 6 MCG İNHALASYON İÇIN TOZ İÇEREN BLISTER_KT.pdf",
+      "ilk_500_karakter": "KULLANMA TALIMATI\nAEROFOR 6 mcg inhalasyon igin toz igeren blister\nA[rzdan solunarak kullanrlrr.\no\nEtkin madde: inhalasyon igin her bir doz 6 mcg formoterol fumarat dihidrat igerir.\no Yanlmtct ntoddeler: Laktoz icerir.\nBu ilacr kullanmaya baqlamadan iince bu KULLANMA TALIMATINI dikkatlice okuyunuz,\ngiinkii sizin iqin iinemli bilgilcr igermektedir.\n.\nBu kullanma talimatmt saklaymtz. Daha sonra teh.ar okumaya ihtiyaE duyabilirsiniz.\n.\nE{er ilave sorulanruz olursa, liitfen doktorunuza veya eczactnt",
+      "tespit_edilen_bozukluklar": [
+        "igermektedir",
+        "iqin",
+        "KULLANMA TALIMATI"
+      ]
+    },
+    {
+      "file_name": "DEKSLANSOPRAZOL_KT.pdf",
+      "ilk_500_karakter": "KIJLLANMA TALiMATI\nDELAXiSE 30 mg EC retard tablet\nA[rz yolu ile ahnrr.\no\nElkin madde(ler): Her bir enterik kaph (EC) retard tablet 30 mg dekslansoprazol igerir.\ne\nYardtmct madde(ler): Krospovidon, magnezyum oksit, kroskarmeloz sodyum, metolose\n4000 SR, sodyum stearil fumarat, polivinilprolidon-K3O, hidroksipropilmeril seliiloz E15,\nhipromelloz ftalat, trietil sitrat, talk, titanyum dioksit (8171), Opadry II 85G18490 (titanyum\ndioksit (E171), talk, lesitin (soya)(E322), Makrogol (E1521), polivin",
+      "tespit_edilen_bozukluklar": [
+        "TALiMATINI",
+        "TALiMATI",
+        "TALiMAT",
+        "iqin",
+        "KULLANMA TALiMATI"
+      ]
+    }
+  ],
+  "gozlenen_bozuk_dogru_eslemeleri": {
+    "TALiMATINI": {
+      "dogru": "TALİMATINI",
+      "adet": 30
+    },
+    "TALiMATI": {
+      "dogru": "TALİMATI",
+      "adet": 89
+    },
+    "TALiMAT": {
+      "dogru": "TALİMAT",
+      "adet": 91
+    },
+    "EEer": {
+      "dogru": "Eğer",
+      "adet": 81
+    },
+    "igermektedir": {
+      "dogru": "içermektedir",
+      "adet": 78
+    },
+    "iqin": {
+      "dogru": "için",
+      "adet": 106
+    },
+    "$i$": {
+      "dogru": "ş",
+      "adet": 8
+    },
+    "KULLANMA TALIMATI": {
+      "dogru": "KULLANMA TALİMATI",
+      "adet": 24
+    },
+    "KULLANMA TALiMATI": {
+      "dogru": "KULLANMA TALİMATI",
+      "adet": 68
+    }
+  },
+  "karsilastirma_once_sonra": {
+    "file_name": "AMPİSİD 1 G IM IENJEKTABL TOZ İÇEREN FLAKON_KT.pdf",
+    "before": {
+      "drug_name": "okuyunuz, gfinki sizin igin 6 neml i bilgiler igermektedir.",
+      "usage_route": "Damar içine uygulanır.",
+      "active_substance": "Her flakon 1000 mg ampisilin (ampisilin sodyum olarak) ve 500 mg sulbaktam (sulbaktam sodyum olarak) iqerir. Her eritici ampul 3.5 ml enjeksiyonluk"
+    },
+    "after": {
+      "drug_name": "okuyunuz, gfinki sizin igin 6 neml i bilgiler içermektedir.",
+      "usage_route": "Damar içine uygulanır.",
+      "active_substance": "Her flakon 1000 mg ampisilin (ampisilin sodyum olarak) ve 500 mg sulbaktam (sulbaktam sodyum olarak) iqerir. Her eritici ampul 3.5 ml enjeksiyonluk"
+    }
+  },
+  "okunamayan_pdfler": {}
+}

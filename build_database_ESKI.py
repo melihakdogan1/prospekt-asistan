@@ -194,7 +194,7 @@ class EmbeddingModelSingleton:
                     try:
                         self._embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
                             model_name=EMBEDDING_MODEL,
-                            device="cpu"  # GPU varsa "cuda" yapılabilir
+                            device="gpu"  # GPU varsa "cuda" yapılabilir
                         )
                         self._is_initialized = True
                         logger.info(" Embedding modeli başarıyla yüklendi ve cache'lendi.")

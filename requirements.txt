@@ -7,7 +7,7 @@ requests==2.31.0
 
 # PDF processing
 PyPDF2==3.0.1
-pdfplumber==0.10.0
+pdfplumber>=0.9.0
 
 # OCR için (opsiyonel - hibrit OCR desteği)
 # PaddleOCR için: pip install paddlepaddle paddleocr
@@ -23,8 +23,10 @@ pytesseract>=0.3.10
 chromadb==0.4.15
 sentence-transformers==2.2.2
 ollama==0.3.1
+torch==2.2.2
+easyocr==1.7.2
 
 # Utilities
 tqdm==4.66.1
-numpy==1.24.3
+numpy==1.26.4
 pandas==2.0.3
