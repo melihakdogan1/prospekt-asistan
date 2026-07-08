@@ -8,6 +8,7 @@ import json
 import os
 import time
 import sqlite3
+import re
 import chromadb
 from sentence_transformers import SentenceTransformer
 
@@ -46,8 +47,30 @@ collection = client.create_collection(
 # ================================================================
 # Yardımcı fonksiyonlar
 # ================================================================
+def turkish_lower(text: str) -> str:
+    if not text: return ""
+    tr_map = str.maketrans("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ", "abcçdefgğhıijklmnoöprsştuüvyz")
+    return text.translate(tr_map).lower()
+
+def turkish_title_case(text: str) -> str:
+    if not text: return ""
+    text = turkish_lower(text)
+    words = text.split()
+    abbreviations = {'mg', 'ml', 'mcg', 'iu', 'gr', 'kg', 'g', 'l'}
+    result = []
+    
+    for word in words:
+        if word.isdigit() or word in abbreviations: result.append(word)
+        elif word:
+            first = word[0]
+            if first == 'i': first = 'İ'
+            elif first == 'ı': first = 'I'
+            else: first = first.upper()
+            result.append(first + word[1:])
+    return ' '.join(result)
+
 def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
-    """Metni overlap ile chunk'lara ayır."""
+    """Metni overlap ile chunk'lara bağlamsal zarar vermeden ayır."""
     if not text or len(text.strip()) < 50:
         return []
     
@@ -55,25 +78,46 @@ def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
     start = 0
     while start < len(text):
         end = start + chunk_size
+        
+        # Son kısımsa direkt al
+        if end >= len(text):
+            chunk = text[start:]
+            if len(chunk.strip()) > 30:
+                chunks.append(chunk.strip())
+            break
+            
         chunk = text[start:end]
         
-        # Cümle sınırında kes (son nokta veya satır sonu)
-        if end < len(text):
-            last_period = chunk.rfind('.')
-            last_newline = chunk.rfind('\n')
-            break_at = max(last_period, last_newline)
-            if break_at > chunk_size * 0.3:
-                chunk = chunk[:break_at + 1]
-                end = start + break_at + 1
+        # Cümleyi ve satırı bağlamı yitirmeden kesmek için öncelik sırası:
+        # 1) Paragraf (çift satır), 2) Liste, 3) Satır sonu, 4) Cümle sonu, 5) Noktalı virgül
+        separators = ['\n\n', '\n•', '\n-', '\n', '. ', '; ']
+        break_at = -1
         
+        for sep in separators:
+            index = chunk.rfind(sep)
+            if index > chunk_size * 0.4:  # Çok geriden kesmesin, en az %40'ı doldursun
+                break_at = index + len(sep)
+                break
+                
+        if break_at > -1:
+            chunk = chunk[:break_at]
+            end = start + break_at
+        else:
+            # Mecbursak boşluktan kes
+            space_index = chunk.rfind(' ')
+            if space_index > chunk_size * 0.6:
+                chunk = chunk[:space_index]
+                end = start + space_index
+                
         chunk = chunk.strip()
         if len(chunk) > 30:
             chunks.append(chunk)
-        
+            
+        # Overlap (Context yitirilmesin diye bir miktar geriye sar)
         start = end - overlap
         if start <= (end - chunk_size):
             start = end
-    
+            
     return chunks
 
 def encode_texts(texts):
@@ -122,8 +166,13 @@ t0 = time.time()
 total_chunks = 0
 
 for row in rows:
-    ilac_id, file_name, drug_name, active_substance, usage_route, bolum_no, section_title, content = row
+    ilac_id, file_name, drug_name_raw, active_substance, usage_route, bolum_no, section_title, content = row
     
+    # Burada kök nedene müdahale ediyoruz (Issue 2 çözümü)
+    drug_name = turkish_title_case(drug_name_raw)
+    if active_substance:
+        active_substance = turkish_title_case(active_substance)
+
     chunks = chunk_text(content)
     if not chunks:
         continue

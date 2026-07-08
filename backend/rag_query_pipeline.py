@@ -141,7 +141,7 @@ class ProspektRAG:
             source = {
                 "rank": i,
                 "score": round(chunk.score, 4),
-                "drug_name": meta.get("drug_name", ""),
+                "drug_name": profile.get("drug_name") or meta.get("drug_name", ""),
                 "bolum_no": meta.get("bolum_no", ""),
                 "section_title": meta.get("section_title", ""),
                 "file_name": meta.get("file_name", ""),
@@ -177,10 +177,15 @@ class ProspektRAG:
         )
 
         system_prompt = (
-            "Sen bir ilac prospektus asistanisin. Sadece verilen kaynaklara dayanarak cevap ver. "
-            "Kaynakta olmayan bilgi uydurma. Emin degilsen 'kaynaklarda net bilgi yok' de. "
-            "Turkce, net, kisa ve guvenli dil kullan. Tani koyma. "
-            "Cevabin sonunda 'Bu bilgi doktor onerisi yerine gecmez.' cumlesini ekle."
+            "Sen uzman bir klinik eczacı ve ilaç asistanısın. Sadece verilen kaynaklara dayanarak, profesyonel ama anlaşılır bir dilde cevap ver.\n"
+            "Tıbbi nüansları koru (örneğin; 'tetiklenen astım' ile 'normal astım' farkı). Kritik uyarıları kesinlikle atlama.\n"
+            "Çıktı Formatı Gereksinimleri (SOTA Optimizasyonu):\n"
+            "• Bilgileri mutlaka ait olduğu spesifik ilacın adına (örneğin: Aspirin 100 mg vs Aspirin Complex) göre net biçimde ayır.\n"
+            "• Uzun yan etki veya uyarı listesi sunacaksan, alt başlıklar halinde (örneğin sıklığına göre: 🔴 Çok Yaygın, 🟡 Yaygın, ⚪ Seyrek vb.) veya tablo kullanarak düzenle.\n"
+            "• Kritik, hayati uyarıları 'KULLANMAYINIZ', 'DİKKATLİ KULLANINIZ' gibi belirgin başlıklar ve kalın yazılarla öne çıkar.\n"
+            "• Karmaşık metinleri ardışık yorucu paragraflar yerine maddeler halinde sırala.\n"
+            "• Eksik veya belirsiz bağlam varsa cümlenin tamamını uydurmak yerine 'Kaynakta sadece X belirtilmiş, devamı net değildir' şeklinde dürüst ol.\n"
+            "Cevabın sonuna mutlaka '⚠️ Bu bilgi doktor önerisi yerine geçmez.' uyarısını ekle."
         )
 
         user_prompt = (
@@ -227,7 +232,7 @@ class ProspektRAG:
             return answer_text, finish_reason
 
         # 1) Normal deneme
-        payload = build_payload(user_prompt, max_tokens=900)
+        payload = build_payload(user_prompt, max_tokens=1500)
         resp = requests.post(url, json=payload, timeout=60)
         if resp.status_code != 200:
             return f"Gemini API hatasi ({resp.status_code}): {resp.text[:500]}"

@@ -476,6 +476,49 @@ async def rag_ask(request: RagAskRequest):
     if not query:
         raise HTTPException(status_code=400, detail="Sorgu boş olamaz.")
 
+    # 1. Seçim Ekranı Mantığı (Disambiguation)
+    # Eğer sorgu kısaysa (sadece ilaç ismi yazılmış olma ihtimali) ve birden fazla ilaçla eşleşiyorsa liste döneriz
+    if len(query.split()) <= 3:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        query_lower = turkish_lower(query)
+        query_upper = turkish_upper(query)
+        query_i_variants = [
+            query,
+            query.replace('i', 'İ').replace('I', 'ı'),
+            query.replace('İ', 'i').replace('ı', 'I'),
+            query_lower,
+            query_upper
+        ]
+        
+        placeholders = ' OR '.join(['drug_name LIKE ?' for _ in query_i_variants])
+        cursor.execute(f"""
+            SELECT DISTINCT drug_name, MIN(id) as id, active_substance as active_ingredient FROM ilaclar
+            WHERE ({placeholders})
+              AND length(drug_name) > 5
+            GROUP BY drug_name
+            ORDER BY drug_name
+            LIMIT 10
+        """, tuple(f'%{v}%' for v in query_i_variants))
+        sql_results = cursor.fetchall()
+        conn.close()
+
+        # Eğer sorgu direkt birden fazla spesifik formu (100 mg, 500 mg vb) getiriyorsa RAG yapmadan seçim sun (Çorba olmayı engeller)
+        if sql_results and len(sql_results) > 1:
+            items = []
+            for r in sql_results:
+                parsed = parse_drug_name(r["drug_name"])
+                items.append({
+                    "id": r["id"],
+                    "name": r["drug_name"],
+                    "brand": parsed['brand'],
+                    "dosage": parsed['dosage'],
+                    "form": parsed['form'],
+                    "active_ingredient": r["active_ingredient"]
+                })
+            return {"type": "list", "items": items}
+
     rag = app_state.get("rag_pipeline")
     if rag is None:
         raise HTTPException(status_code=503, detail="RAG pipeline hazır değil.")
