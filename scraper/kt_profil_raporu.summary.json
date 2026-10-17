@@ -1,0 +1,37 @@
+{
+  "profile_version": "2.1.0",
+  "pymupdf_version": "1.28.2",
+  "options": {
+    "deep": false,
+    "tables": true,
+    "hash": false,
+    "min_chars": 150,
+    "max_table_paths": 600
+  },
+  "started_utc": "2026-10-06T09:49:08.887278+00:00",
+  "total_files": 15614,
+  "status_counts": {
+    "ok": 15610,
+    "error": 4
+  },
+  "document_type_counts": {
+    "unknown": 1160,
+    "KT": 14179,
+    "KUB": 12,
+    "mixed": 263
+  },
+  "pages": 143816,
+  "kt_header_first_page_files": 14395,
+  "kt_five_body_headings_candidate_files": 12981,
+  "ocr_candidate_files": 1173,
+  "ocr_candidate_pages": 8374,
+  "review_files": 6743,
+  "additional_monitoring_text_files": 1714,
+  "health_staff_heading_files": 2070,
+  "table_candidate_files": 3015,
+  "table_detection_skipped_pages": 882,
+  "cache_hits": 0,
+  "analyzed_files": 15614,
+  "elapsed_seconds": 3682.4269,
+  "files_per_second": 4.24
+}
